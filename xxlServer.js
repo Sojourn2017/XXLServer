@@ -22,7 +22,7 @@ const options = {
 };
 
 function handleStatic(pathName) {
-  let reg = /\.([a-zA-Z]*)$/;
+  let reg = /\.([a-zA-Z0-9]*)$/;
   if (reg.test(pathName)) {
     let type = RegExp.$1;
     return MIME[type];
