@@ -15,6 +15,7 @@ API["/"] = API["/index"] = function(
 ) {
   fs.readFile('.' + pathName, (err, data) => {
     if (err) {
+      console.log(err);
       res.writeHead(404, {
         "content-type": `text/plain`
       });
