@@ -94,8 +94,8 @@ function onListening() {
 // https
 
 const options = {
-  key: fs.readFileSync("../ca/privatekey.pem"),
-  cert: fs.readFileSync("../ca/certificate.pem")
+  key: fs.readFileSync("../s2l/Nginx/2_s2l.xyz.key"),
+  cert: fs.readFileSync("../s2l/Nginx/1_s2l.xyz_bundle.crt")
 };
 
 const httpsServer = https.createServer(options, app);
