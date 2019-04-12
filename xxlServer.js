@@ -12,7 +12,8 @@ const MIME = {
   jpg: "image/jpeg",
   gif: "image/gif",
   mp3: "audio/mp3",
-  json: "application/json"
+  json: "application/json",
+  ttf: "application/x-font-ttf"
 };
 
 const options = {
