@@ -32,7 +32,7 @@ function handleStatic(pathName) {
 function Server() {
   http
     .createServer((req, res) => {
-      let pathName = url.parse(req.url).pathname.toLocaleLowerCase();
+      let pathName = url.parse(req.url).pathname;
       console.log(pathName)
       // 判断静态资源
       var fileType = handleStatic(pathName);
@@ -55,7 +55,7 @@ function Server() {
 function HttpsServer () {
   https
     .createServer(options, (req, res) => {
-      let pathName = url.parse(req.url).pathname.toLocaleLowerCase();
+      let pathName = url.parse(req.url).pathname;
       console.log(pathName)
       // 判断静态资源
       var fileType = handleStatic(pathName);
