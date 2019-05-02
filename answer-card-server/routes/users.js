@@ -12,6 +12,7 @@ router.get('/', function(req, res, next) {
 
 // 登录
 router.post("/login", function (req, res, next) {
+  console.log('login')
   let js_code = req.body.js_code;
   let url = `https://api.weixin.qq.com/sns/jscode2session?appid=${CONSTVALUE.appid}&secret=${CONSTVALUE.secret}&js_code=${js_code}&grant_type=authorization_code`;
   axios.get(url).then(response => {

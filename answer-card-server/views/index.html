@@ -11,10 +11,8 @@
     <h2>hello express</h2>
     <script>
       axios
-        .post("/answerCard/playerStatis", {
-          openid: "test",
-          timeStart: 1556172020000,
-          timeEnd: 1556349080000
+        .post("https://localhost:60001/users/login", {
+          js_code: "021VfWfu0OeBXh1Fg4gu0Nlhgu0VfWfl"
         })
         .then(console.log)
         .catch(console.log);

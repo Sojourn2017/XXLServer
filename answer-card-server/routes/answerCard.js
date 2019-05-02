@@ -10,7 +10,7 @@ let fs = require("fs");
 let cetCollectionMethods = require("../utils/cetCollectionMethods");
 
 // 连接mangoDB数据库
-mongoose.connect("mongodb://localhost:27017/answerCard", {
+mongoose.connect("mongodb://118.24.149.139:27017/answerCard", {
   useNewUrlParser: true
 });
 
