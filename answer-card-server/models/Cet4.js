@@ -10,7 +10,8 @@ let cetSchema = new Schema({
       en: String,
       ch: Array,
       id: String,
-      wordIndex: Number
+      wordIndex: Number,
+      wordType: String
     }
   ]
 })

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+    <title>index</title>
+  </head>
+  <body>
+    <h2>hello express</h2>
+    <script>
+      axios
+        .post("/answerCard/playerStatis", {
+          openid: "test",
+          timeStart: 1556172020000,
+          timeEnd: 1556349080000
+        })
+        .then(console.log)
+        .catch(console.log);
+    </script>
+  </body>
+</html>

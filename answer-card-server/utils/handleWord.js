@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-fs.readFile("./cet4.txt", (err, data) => {
+fs.readFile("./cet6.txt", (err, data) => {
   if (err) {
     console.log(err);
     return;
@@ -8,8 +8,13 @@ fs.readFile("./cet4.txt", (err, data) => {
   let wordsList = data.toString('utf8').split('\n');
   let reg = /([a-z.&]*?[^a-z.&\s]+)/g;
   let cet4 = [];
+  let wordType = '6';
   wordsList.forEach((str) => {
-    let arr = str.split(' ');
+    // let arr = str.split(' ');
+
+    str = str.replace(/\s{3,}/, '  ')
+    let arr = str.split('  ');
+
     if (arr.length == 2) {
       if (typeof arr[0] !== 'string' && arr[0].length === 0) {
         return;
@@ -26,13 +31,15 @@ fs.readFile("./cet4.txt", (err, data) => {
         m = reg.exec(arr[1]);
       }
       if (cet4[charIndex]) {
-        word.id = char + cet4[charIndex].wordsLength;
+        word.id = wordType + char + cet4[charIndex].wordsLength;
         word.wordIndex = cet4[charIndex].wordsLength;
+        word.wordType = 'cet6';
         cet4[charIndex].words.push(word);
         cet4[charIndex].wordsLength++;
       } else {
-        word.id = char + 0;
+        word.id = wordType + char + 0;
         word.wordIndex = 0;
+        word.wordType = 'cet6';
         cet4[charIndex] = {
           char: char,
           charIndex: charIndex,
@@ -42,5 +49,5 @@ fs.readFile("./cet4.txt", (err, data) => {
       }
     }
   })
-  fs.writeFile('./cet4.json', JSON.stringify(cet4) , console.log);
+  fs.writeFile('./cet6.json', JSON.stringify(cet4) , console.log);
 })
