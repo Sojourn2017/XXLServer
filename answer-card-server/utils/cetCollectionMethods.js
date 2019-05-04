@@ -115,7 +115,7 @@ function calcWordWeight(word = {}) {
 }
 
 // 权重最大的单词
-function getMaxWeightWord(words = [], wordType) {
+function getMaxWeightWord(words = [], wordType, ecludeList) {
   if (!Array.isArray(words)) return null;
   if (!wordType) return null;
   let maxWeightWord;
@@ -123,6 +123,15 @@ function getMaxWeightWord(words = [], wordType) {
   words.map((word, index) => {
     if (word.wordType !== wordType) return;
     let wordWeight = calcWordWeight(word);
+
+    let isInEclude = false;
+    for (let i = 0, len = ecludeList.length; i < len; i++) {
+      if (word.id === ecludeList[i].id) {
+        isInEclude = true;
+        break;
+      }
+    }
+
     if (wordWeight > maxWeight) {
       maxWeight = wordWeight;
       maxWeightWord = word;

@@ -150,10 +150,16 @@ router.post("/getWord", function(req, res, next) {
         res_Interf.send(res, 1, err.message);
       } else {
         if (user && user.wrongWords) {
+          let answerWords = user.answerWords;
+          let time = Date.now() - 180000;
+          let ecludeList = answerWords.filter((word) => {
+            return word.timeStamp > time;
+          })
           let randomIndex = Math.floor(Math.random() * 26);
           let maxWeightWord = cetCollectionMethods.getMaxWeightWord(
             user.wrongWords,
-            wordType
+            wordType,
+            ecludeList
           );
           if (maxWeightWord) {
             let answerCard = cetCollectionMethods.makeAnswerCard(
