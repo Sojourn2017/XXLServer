@@ -123,7 +123,6 @@ function getMaxWeightWord(words = [], wordType, ecludeList) {
   words.map((word, index) => {
     if (word.wordType !== wordType) return;
     let wordWeight = calcWordWeight(word);
-    console.log(ecludeList);
     let isInEclude = false;
     for (let i = 0, len = ecludeList.length; i < len; i++) {
       if (word.id === ecludeList[i].id) {
