@@ -161,6 +161,7 @@ router.post("/getWord", function(req, res, next) {
             wordType,
             ecludeList
           );
+          console.log(maxWeightWord);
           if (maxWeightWord) {
             let answerCard = cetCollectionMethods.makeAnswerCard(
               new Promise((resolve, reject) =>
