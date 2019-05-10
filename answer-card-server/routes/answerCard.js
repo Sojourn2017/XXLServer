@@ -134,6 +134,7 @@ router.get("/test", (req, res, next) => {
 router.post("/getWord", function(req, res, next) {
   let cetType = parseInt(req.body.cetType) || 0;
   let openId = req.body.openid;
+  console.log(cetType, openId);
   if (!openId) {
     res_Interf.send(res, 1, "no openid!");
   }
